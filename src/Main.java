@@ -1,15 +1,43 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        System.out.println("Quanti libri vuoi inserire?");
+        int numBooks = scanner.nextInt();
+        scanner.nextLine();
+
+        Book[] library = new Book[numBooks];
+
+        for (int i = 0; i < numBooks; i++) {
+            try {
+                System.out.println("Inserisci i dati del libro " + (i + 1) + ":");
+                System.out.print("Titolo: ");
+                String title = scanner.nextLine();
+                System.out.print("Autore: ");
+                String author = scanner.nextLine();
+                System.out.print("Editore: ");
+                String publisher = scanner.nextLine();
+                System.out.print("Numero di pagine: ");
+                int numPages = scanner.nextInt();
+                scanner.nextLine();
+
+
+                library[i] = new Book(title, author, publisher, numPages);
+            } catch (BookException e) {
+                System.out.println("Errore nella creazione del libro: " + e.getMessage());
+                i--;
+            }
         }
+
+        System.out.println("Catalogo libri inserito:");
+        for (Book book : library) {
+            if (book != null) {
+                System.out.println(book);
+            }
+        }
+
+        scanner.close();
     }
 }
