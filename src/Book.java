@@ -14,7 +14,45 @@ public class Book {
         this.numPages = numPages;
     }
 
-    // Getter e setter
+    // Getter per il campo title
+    public String getTitle() {
+        return title;
+    }
+
+    // Setter per il campo title
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    // Getter per il campo author
+    public String getAuthor() {
+        return author;
+    }
+
+    // Setter per il campo author
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    // Getter per il campo publisher
+    public String getPublisher() {
+        return publisher;
+    }
+
+    // Setter per il campo publisher
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    // Getter per il campo numPages
+    public int getNumPages() {
+        return numPages;
+    }
+
+    // Setter per il campo numPages
+    public void setNumPages(int numPages) {
+        this.numPages = numPages;
+    }
 
     @Override
     public String toString() {
