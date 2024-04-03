@@ -24,7 +24,7 @@ public class Main {
                 scanner.nextLine();
 
 
-                library[i] = new Book(title, author, publisher, numPages);
+                library[i] = new Book(title, author, publisher, Integer.toString(numPages));
             } catch (BookException e) {
                 System.out.println("Errore nella creazione del libro: " + e.getMessage());
                 i--;
